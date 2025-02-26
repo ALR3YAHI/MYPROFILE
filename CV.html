@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laith Raied Alreyahi - Cybersecurity Professional</title>
+    <style>
+        :root {
+            --primary: #ff0000;
+            --primary-dark: #b30000;
+            --secondary: #ff3333;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #f8f8f2;
+            --accent: #ff6666;
+            --terminal-bg: #0c0c0c;
+            --terminal-border: #ff0000;
+            --terminal-text: #f8f8f2;
+            --highlight: #ff4444;
+            --terminal-header: #1a1a1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(255, 0, 0, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 90% 90%, rgba(255, 0, 0, 0.1) 0%, transparent 30%);
+            z-index: -1;
+        }
+        
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10%;
+            width: 120%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            animation: scan 4s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+        
+        .hacker-prompt {
+            display: inline-block;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-family: monospace;
+            font-size: 18px;
+        }
+        
+        .hacker-prompt::after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 25px 0 15px 0;
+            border-left: 4px solid var(--primary);
+            padding-left: 10px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: ">";
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .subtitle {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .personal-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-item {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 15px;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--darker);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        section:hover {
+            box-shadow: 0 8px 30px rgba(255, 0, 0, 0.2);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .skill-category {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 5px;
+            border-top: 3px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .skill-title {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .skill-items {
+            list-style-type: none;
+        }
+        
+        .skill-item {
+            margin: 8px 0;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        
+        .skill-item:hover {
+            color: var(--primary);
+            background-color: rgba(255, 0, 0, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .skill-item::before {
+            content: ">";
+            color: var(--primary);
+            margin-right: 8px;
+        }
+        
+        /* Updated Terminal Styles */
+        .terminal-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: none;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .terminal-container.show {
+            display: block;
+            transform: translateY(0);
+        }
+        
+        .terminal {
+            background-color: var(--terminal-bg);
+            border: 1px solid var(--terminal-border);
+            border-radius: 8px 8px 0 0;
+            font-family: 'Dejavu Sans Mono', 'Courier New', monospace;
+            box-shadow: 0 -5px 25px rgba(255, 0, 0, 0.3);
+            margin: 0 auto;
+            max-width: 1000px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .terminal-header {
+            background-color: var(--terminal-header);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 15px;
+            border-bottom: 1px solid var(--terminal-border);
+        }
+        
+        .terminal-title {
+            color: var(--primary);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .terminal-title-icon {
+            width: 16px;
+            height: 16px;
+            fill: var(--primary);
+        }
+        
+        .terminal-controls {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .terminal-minimize {
+            background-color: #ffbd44;
+        }
+        
+        .terminal-maximize {
+            background-color: #00ca56;
+        }
+        
+        .terminal-close {
+            background-color: #ff605c;
+        }
+        
+        .terminal-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--terminal-text);
+        }
+        
+        .terminal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .terminal-content::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .terminal-content::-webkit-scrollbar-thumb {
+            background-color: var(--primary-dark);
+            border-radius: 4px;
+        }
+        
+        .command-line {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .prompt {
+            color: #00ca56;
+            font-weight: bold;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+        
+        .directory {
+            color: #3b78ff;
+            margin-right: 8px;
+        }
+        
+        .command {
+            color: var(--terminal-text);
+        }
+        
+        .output {
+            color: var(--terminal-text);
+            margin: 5px 0 15px 0;
+            white-space: pre-wrap;
+            opacity: 0;
+            animation: fadeIn 0.3s forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .error {
+            color: var(--primary);
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .input-line {
+            display: flex;
+            margin-top: 10px;
+        }
+        
+        .input-prompt {
+            color: #00ca56;
+            font-weight: bold;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+        
+        .input-directory {
+            color: #3b78ff;
+            margin-right: 8px;
+        }
+        
+        .input-field {
+            background: transparent;
+            border: none;
+            color: var(--terminal-text);
+            font-family: 'Dejavu Sans Mono', 'Courier New', monospace;
+            font-size: 14px;
+            flex: 1;
+            caret-color: var(--terminal-text);
+            outline: none;
+        }
+        
+        .terminal-badge {
+            background-color: var(--primary);
+            color: #000;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 8px;
+        }
+        
+        .typing {
+            animation: typing 1.5s steps(40, end);
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 15px;
+            background-color: var(--terminal-text);
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+        
+        .certificate {
+            background: linear-gradient(145deg, #0a0a0a 0%, #1a0000 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .certificate:hover {
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4);
+            transform: perspective(1000px) rotateY(5deg);
+        }
+        
+        .certificate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--secondary));
+        }
+        
+        .certificate::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff0000' opacity='0.1'%3E%3Cpath d='M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42'/%3E%3Ccircle cx='12' cy='12' r='6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.2;
+        }
+        
+        .certificate h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+        }
+        
+        .certificate p {
+            color: var(--light);
+            font-size: 1.1rem;
+            margin: 15px 0;
+        }
+        
+        .certificate-logo {
+            max-width: 200px;
+            margin: 20px auto;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.8));
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            background: linear-gradient(145deg, rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.2));
+            border-radius: 20px;
+            margin: 10px auto;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            font-weight: bold;
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .education-item, .exp-item {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .education-item:hover, .exp-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+        }
+        
+        .edu-title, .exp-title {
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .date {
+            color: var(--accent);
+            font-style: italic;
+            margin-bottom: 10px;
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+        
+        .project {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+        }
+        
+        .project::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 70px;
+            height: 70px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff0000' opacity='0.1'%3E%3Cpath d='M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42'/%3E%3Ccircle cx='12' cy='12' r='6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.2;
+        }
+        
+        .project-title {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-desc {
+            margin-bottom: 15px;
+        }
+        
+        .soft-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .soft-skill {
+            background-color: rgba(255, 0, 0, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 20px;
+            padding: 8px 15px;
+            color: var(--light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .soft-skill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+        
+        .typing-effect {
+            overflow: hidden;
+            border-right: 2px solid var(--primary);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+        
+        .tool-icon {
+            display: inline-block;
+            margin-right: 5px;
+            width: 16px;
+            height: 16px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+        }
+        
+        .progress-bar {
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0;
+            transition: width 1s ease;
+        }
+        
+        .hacker-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .hacker-button {
+            padding: 12px 25px;
+            background: linear-gradient(145deg, #0f0f0f, #1a0000);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hacker-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .hacker-button:hover {
+            background: rgba(255, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .hacker-button:hover::before {
+            left: 100%;
+        }
+        
+        /* New Terminal Toggle button */
+        .terminal-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--terminal-bg);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        
+        .terminal-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
+        }
+        
+        .terminal-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+        }
+        
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+            color: var(--primary);
+        }
+        
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -1px 0 rgba(255, 0, 0, 0.7);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-1 5s linear infinite alternate-reverse;
+        }
+        
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -1px 0 rgba(0, 0, 255, 0.7);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-2 5s linear infinite alternate-reverse;
+        }
+        
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(23px, 9999px, 15px, 0); }
+            5% { clip: rect(58px, 9999px, 93px, 0); }
+            10% { clip: rect(33px, 9999px, 6px, 0); }
+            15% { clip: rect(93px, 9999px, 78px, 0); }
+            20% { clip: rect(53px, 9999px, 9px, 0); }
+            25% { clip: rect(22px, 9999px, 31px, 0); }
+            30% { clip: rect(74px, 9999px, 88px, 0); }
+            35% { clip: rect(75px, 9999px, 85px, 0); }
+            40% { clip: rect(20px, 9999px, 98px, 0); }
+            45% { clip: rect(59px, 9999px, 84px, 0); }
+            50% { clip: rect(70px, 9999px, 37px, 0); }
+            55% { clip: rect(65px, 9999px, 26px, 0); }
+            60% { clip: rect(14px, 9999px, 79px, 0); }
+            65% { clip: rect(79px, 9999px, 21px, 0); }
+            70% { clip: rect(91px, 9999px, 20px, 0); }
+            75% { clip: rect(35px, 9999px, 60px, 0); }
+            80% { clip: rect(84px, 9999px, 12px, 0); }
+            85% { clip: rect(5px, 9999px, 68px, 0); }
+            90% { clip: rect(64px, 9999px, 7px, 0); }
+            95% { clip: rect(38px, 9999px, 1px, 0); }
+            100% { clip: rect(97px, 9999px, 51px, 0); }
+        }
+        
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(47px, 9999px, 9px, 0); }
+            5% { clip: rect(50px, 9999px, 58px, 0); }
+            10% { clip: rect(47px, 9999px, 3px, 0); }
+            15% { clip: rect(63px, 9999px, 32px, 0); }
+            20% { clip: rect(60px, 9999px, 61px, 0); }
+            25% { clip: rect(84px, 9999px, 24px, 0); }
+            30% { clip: rect(13px, 9999px, 17px, 0); }
+            35% { clip: rect(88px, 9999px, 21px, 0); }
+            40% { clip: rect(68px, 9999px, 12px, 0); }
+            45% { clip: rect(32px, 9999px, 9px, 0); }
+            50% { clip: rect(17px, 9999px, 8px, 0); }
+            55% { clip: rect(15px, 9999px, 32px, 0); }
+            60% { clip: rect(76px, 9999px, 88px, 0); }
+            65% { clip: rect(72px, 9999px, 70px, 0); }
+            70% { clip: rect(15px, 9999px, 57px, 0); }
+            75% { clip: rect(82px, 9999px, 94px, 0); }
+            80% { clip: rect(62px, 9999px, 29px, 0); }
+            85% { clip: rect(99px, 9999px, 44px, 0); }
+            90% { clip: rect(21px, 9999px, 46px, 0); }
+            95% { clip: rect(64px, 9999px, 76px, 0); }
+            100% { clip: rect(56px, 9999px, 81px, 0); }
+        }
+        
+        @media (max-width: 768px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .personal-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .terminal {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrixCanvas" class="matrix-bg"></canvas>
+    
+    <div class="container">
+        <header>
+            <div class="hacker-prompt">root@cybersec:~# <span class="typing-effect">whoami</span></div>
+
+            <div class="subtitle"> <h1 class="glitch-text" data-text="Laith Raied Alreyahi">Laith Raied Alreyahi</h1></div>
+            <div class="subtitle">Computer Engineer | Cybersecurity </div>
+            <div class="personal-info">
+                <div class="info-item">📍 Salt, Jordan</div>
+                <div class="info-item">📱 +962778995701</div>
+                <div class="info-item">✉️ alreyahilaith@gmail.com</div>
+                <div class="info-item">🎂 8/9/2002</div>
+            </div>
+        </header>
+        
+        <div class="hacker-buttons">
+            <button class="hacker-button" id="skills-btn">Technical Skills</button>
+            <button class="hacker-button" id="experiences-btn">Competitions & Projects</button>
+             <button class="hacker-button" id="Certificates-btn">Certificates</button>
+
+        </div>
+<script type="text/javascript">
+    
+    // Add this JavaScript code at the end of the body section
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Create terminal elements if they don't exist
+    if (!document.querySelector('.terminal-container')) {
+        createTerminalElements();
+    }
+    
+    // Get button elements
+    const skillsBtn = document.getElementById('skills-btn');
+    const experiencesBtn = document.getElementById('experiences-btn');
+    const certificatesBtn = document.getElementById('Certificates-btn');
+    
+    // Add event listeners to buttons
+    skillsBtn.addEventListener('click', () => showTerminal('skills'));
+    experiencesBtn.addEventListener('click', () => showTerminal('experiences'));
+    certificatesBtn.addEventListener('click', () => showTerminal('certificates'));
+    
+    // Terminal close button functionality
+    document.querySelector('.terminal-close').addEventListener('click', hideTerminal);
+    document.querySelector('.terminal-minimize').addEventListener('click', hideTerminal);
+});
+
+function createTerminalElements() {
+    // Create terminal container
+    const terminalContainer = document.createElement('div');
+    terminalContainer.className = 'terminal-container';
+    
+    // Create terminal HTML structure
+    terminalContainer.innerHTML = `
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-title">
+                    <svg class="terminal-title-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0V0z" fill="none"/>
+                        <path d="M20 4H4c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6v-2zm0-4h8v2H6V6zm10 8h2v2h-2v-2zm-6-4h8v2h-8v-2z"/>
+                    </svg>
+                    <span>Terminal</span>
+                    <span class="terminal-badge">laith@r3yahi</span>
+                </div>
+                <div class="terminal-controls">
+                    <button class="terminal-button terminal-minimize"></button>
+                    <button class="terminal-button terminal-maximize"></button>
+                    <button class="terminal-button terminal-close"></button>
+                </div>
+            </div>
+            <div class="terminal-content">
+                <!-- Terminal content will be added here -->
+            </div>
+        </div>
+    `;
+    
+    // Append terminal to body
+    document.body.appendChild(terminalContainer);
+}
+
+function showTerminal(type) {
+    const terminalContainer = document.querySelector('.terminal-container');
+    const terminalContent = document.querySelector('.terminal-content');
+    
+    // Clear previous content
+    terminalContent.innerHTML = '';
+    
+    // Show initial command
+    addCommandLine('laith@r3yahi:~$', `cat ${type}.txt`);
+    
+    // Show appropriate content based on button clicked
+    setTimeout(() => {
+        switch(type) {
+            case 'skills':
+                showSkills();
+                break;
+            case 'experiences':
+                showExperiences();
+                break;
+            case 'certificates':
+                showCertificates();
+                break;
+        }
+        
+        // Add new command prompt after output
+        setTimeout(() => {
+            addCommandLine('laith@r3yahi:~$', '');
+        }, 500);
+    }, 500);
+    
+    // Show terminal with animation
+    terminalContainer.classList.add('show');
+}
+
+function hideTerminal() {
+    const terminalContainer = document.querySelector('.terminal-container');
+    terminalContainer.classList.remove('show');
+}
+
+function addCommandLine(prompt, command) {
+    const terminalContent = document.querySelector('.terminal-content');
+    const commandLine = document.createElement('div');
+    commandLine.className = 'command-line';
+    commandLine.innerHTML = `
+        <span class="prompt">${prompt}</span>
+        <span class="command typing">${command}</span>
+    `;
+    terminalContent.appendChild(commandLine);
+    terminalContent.scrollTop = terminalContent.scrollHeight;
+}
+
+function addOutput(content, isError = false) {
+    const terminalContent = document.querySelector('.terminal-content');
+    const output = document.createElement('div');
+    output.className = isError ? 'output error' : 'output';
+    output.innerHTML = content;
+    terminalContent.appendChild(output);
+    terminalContent.scrollTop = terminalContent.scrollHeight;
+}
+
+function showSkills() {
+    const skillsOutput = `
+<span class="highlight">==== TECHNICAL SKILLS ====</span>
+
+<span class="highlight">Programming Languages:</span>
+> Python
+> PHP
+> JavaScript
+> HTML5
+> CSS
+> SQL
+
+<span class="highlight">Cybersecurity Tools:</span>
+> Metasploit
+> Burp Suite
+> Nmap
+> Nessus
+> FTK Imager
+> Autopsy
+
+<span class="highlight">Operating Systems:</span>
+> Linux (Kali, Parrot, Ubuntu)
+> Windows
+
+<span class="highlight">Virtualization:</span>
+> VMware
+
+<span class="highlight">CTF Platforms:</span>
+> TryHackMe (Top 7%)
+> PicoCTF
+> CTFlearn
+> CTFd
+
+<span class="highlight">Languages:</span>
+> Arabic (Native)
+> English (Fluent)
+`;
+    addOutput(skillsOutput);
+}
+
+function showExperiences() {
+    const experiencesOutput = `
+<span class="highlight">==== COMPETITIONS & PROJECTS ====</span>
+
+<span class="highlight">Cyber Warriors Competition:</span>
+> Participated with team <span class="highlight">CTFKINGS</span>, qualifying for the final stage
+> Solved 3 challenges in digital forensics (300 points)
+> Additional cryptography challenge solved by the team (total: 400 points)
+> Date: July 17, 2024 - Al-Ahliyya Amman University
+
+<span class="highlight">Hosting TCT CTF Competition:</span>
+> Created and organized a CTF competition using the CTFd platform
+> Designed challenges in web security, cryptography, reverse engineering, forensics, and programming
+> Customized the platform for an engaging user experience
+> Managed event execution and participant support
+> Date: January 4, 2025 - Precise Thinking TCT
+
+<span class="highlight">Graduation Project: GYM Management System</span>
+> Developed a web application with multiple security features
+> Utilized XAMPP for Apache and MySQL server management
+> Integrated AI chatbot (GPT-3.5) for gym-related inquiries
+> Included a chat room, e-commerce shop, and trainer scheduling system
+`;
+    addOutput(experiencesOutput);
+}
+
+function showCertificates() {
+    const certificatesOutput = `
+<span class="highlight">==== CERTIFICATIONS & TRAINING ====</span>
+
+<span class="highlight">Professional Certifications:</span>
+> eLearnSecurity Junior Penetration Tester (eJPTv2)
+
+<span class="highlight">Courses & Training:</span>
+> CCNA: Learned to configure routers and implement protocols (RIP, OSPF)
+> Security+: Gained awareness of vulnerabilities and hacker methodologies
+> Computer Forensics & Digital Forensics PRO+ (Udemy)
+> Practical Malware Analysis for Beginners (Udemy)
+> Applied Cryptography with Python (Udemy)
+> Bash Scripting for Linux (Udemy)
+
+<span class="highlight">Cybersecurity Engineer Training (Oct 2024 – Jan 2025):</span>
+> Network scanning using Nmap
+> Finding open ports & scanning IoT devices
+> CTFd platform hosting
+> Identifying misconfiguration vulnerabilities
+
+<span class="highlight">Education:</span>
+> Bachelor's Degree in Computer Engineering
+  Al-Balqa Applied University (BAU) / Faculty of Engineering Technology (FET)
+  2019 - 2025
+`;
+    addOutput(certificatesOutput);
+}
+
+// Add a toggle button for the terminal
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.createElement('div');
+    toggleButton.className = 'terminal-toggle';
+    toggleButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6v-2zm0-4h8v2H6V6zm10 8h2v2h-2v-2zm-6-4h8v2h-8v-2z"/>
+        </svg>
+    `;
+    document.body.appendChild(toggleButton);
+    
+    toggleButton.addEventListener('click', function() {
+        const terminalContainer = document.querySelector('.terminal-container');
+        if (terminalContainer.classList.contains('show')) {
+            hideTerminal();
+        } else {
+            showTerminal('skills'); // Default to skills when clicking the toggle button
+        }
+    });
+});
+</script>
+</body>
