@@ -860,6 +860,7 @@
             <button class="hacker-button" id="skills-btn">Technical Skills</button>
             <button class="hacker-button" id="experiences-btn">Competitions & Projects</button>
              <button class="hacker-button" id="Certificates-btn">Certificates</button>
+             <button class="hacker-button" id="Co-btn">Courses</button>
 
         </div>
 <script type="text/javascript">
@@ -876,12 +877,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const skillsBtn = document.getElementById('skills-btn');
     const experiencesBtn = document.getElementById('experiences-btn');
     const certificatesBtn = document.getElementById('Certificates-btn');
-    
+      const CoBtn = document.getElementById('Co-btn');
     // Add event listeners to buttons
     skillsBtn.addEventListener('click', () => showTerminal('skills'));
     experiencesBtn.addEventListener('click', () => showTerminal('experiences'));
     certificatesBtn.addEventListener('click', () => showTerminal('certificates'));
-    
+    CoBtn.addEventListener('click', () => showTerminal('Courses'));
     // Terminal close button functionality
     document.querySelector('.terminal-close').addEventListener('click', hideTerminal);
     document.querySelector('.terminal-minimize').addEventListener('click', hideTerminal);
@@ -941,6 +942,9 @@ function showTerminal(type) {
                 break;
             case 'certificates':
                 showCertificates();
+                break;
+            case 'Courses':
+                showCo();
                 break;
         }
         
@@ -1082,6 +1086,51 @@ function showCertificates() {
   2021 - 2025
 `;
     addOutput(certificatesOutput);
+}
+
+function showCo() {
+    const Co = `
+<span class="highlight">CCNA:</span>
+
+Learned to configure routers and set up routing protocols such as RIP and OSPF
+
+<span class="highlight">Security+:</span>
+
+Gained foundational knowledge in cybersecurity concepts and common vulnerabilities
+
+<span class="highlight">Introduction to Cyber Security (Cisco):</span>
+
+Covered cybersecurity basics including threat types, attack vectors, and defense mechanisms
+
+<span class="highlight">Bug Bounty:</span>
+
+Learned effective vulnerability hunting techniques and responsible disclosure practices
+
+<span class="highlight">Metasploit Tool & Penetration Testing:</span>
+
+Gained hands-on experience using Metasploit for exploitation and post-exploitation activities
+
+<span class="highlight">Data Science:</span>
+
+Explored data analysis, visualization, and machine learning fundamentals
+
+<span class="highlight">Computer Forensics and Digital Forensics PRO+ (Udemy):</span>
+
+Studied forensic investigation processes including evidence acquisition and analysis
+
+<span class="highlight">Practical Malware Analysis for Beginners (Udemy):</span>
+
+Learned malware behavior analysis, dynamic/static analysis, and sandbox techniques
+
+<span class="highlight">Applied Cryptography with Python (Udemy):</span>
+
+Implemented cryptographic algorithms using Python for secure data processing
+
+<span class="highlight">Bash Scripting for Linux (Udemy):</span>
+
+Developed automation scripts for system tasks and security testing on Linux systems
+`;
+    addOutput(coOutput);
 }
 
 // Add a toggle button for the terminal
